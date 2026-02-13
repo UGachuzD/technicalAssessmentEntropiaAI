@@ -3,9 +3,9 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.messages import SystemMessage, HumanMessage
 
 class StyledAnswers(BaseModel):
-    original_answer: str = Field(description="The original answer generated in step 7")
-    dry_answer: str = Field(description="Very concise and direct version in Spanish")
-    funny_answer: str = Field(description="Humorous version in Spanish, still faithful to original answer")
+    original_answer: str = Field(description="La respuesta original")
+    dry_answer: str = Field(description="Versión muy concisa y directa en español")
+    funny_answer: str = Field(description="Versión con humor en español, fiel a la respuesta original (sin inventar datos)")
 
 def styleAnswer(llm, original_answer: str) -> dict:
     parser = PydanticOutputParser(pydantic_object=StyledAnswers)
